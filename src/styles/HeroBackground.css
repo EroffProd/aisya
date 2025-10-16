@@ -1,0 +1,282 @@
+/* Hero Background Container */
+.hero-bg-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* SVG Shapes Container */
+.hero-svg-shapes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.9;
+}
+
+/* Shape Animations */
+.shape {
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+/* Circle Animations */
+.shape-circle-1 {
+  animation: float-1 8s ease-in-out infinite;
+}
+
+.shape-circle-2 {
+  animation: float-2 10s ease-in-out infinite;
+}
+
+.shape-circle-3 {
+  animation: float-3 7s ease-in-out infinite;
+}
+
+.shape-circle-4 {
+  animation: pulse-scale 6s ease-in-out infinite;
+}
+
+.shape-circle-5 {
+  animation: float-4 9s ease-in-out infinite;
+}
+
+/* Triangle Animations */
+.shape-triangle-1 {
+  animation: rotate-slow 20s linear infinite;
+  transform-origin: center;
+}
+
+.shape-triangle-2 {
+  animation: float-3 8s ease-in-out infinite;
+}
+
+/* Rectangle/Square Animations */
+.shape-rect-1 {
+  animation: rotate-slow 15s linear infinite;
+  transform-origin: center;
+}
+
+.shape-rect-2 {
+  animation: pulse-opacity 4s ease-in-out infinite;
+}
+
+/* Line Animations */
+.shape-line-1 {
+  animation: dash-line 8s ease-in-out infinite;
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+}
+
+.shape-line-2 {
+  animation: dash-line 10s ease-in-out infinite 2s;
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+}
+
+/* Hexagon Animation */
+.shape-hex-1 {
+  animation: rotate-slow 25s linear infinite reverse;
+  transform-origin: center;
+}
+
+/* Plus Sign Animations */
+.shape-plus-1 {
+  animation: rotate-slow 12s linear infinite;
+  transform-origin: 400px 200px;
+}
+
+.shape-plus-2 {
+  animation: rotate-slow 18s linear infinite reverse;
+  transform-origin: 1000px 500px;
+}
+
+/* Dot Animations */
+.shape-dot-1 {
+  animation: pulse-opacity 2s ease-in-out infinite;
+}
+
+.shape-dot-2 {
+  animation: pulse-opacity 2s ease-in-out infinite 0.3s;
+}
+
+.shape-dot-3 {
+  animation: pulse-opacity 2s ease-in-out infinite 0.6s;
+}
+
+/* Ring Animations */
+.shape-ring-1 {
+  animation: pulse-ring 3s ease-in-out infinite;
+}
+
+.shape-ring-2 {
+  animation: pulse-ring 3s ease-in-out infinite 0.5s;
+}
+
+/* Keyframe Animations */
+@keyframes float-1 {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(30px, -40px);
+  }
+}
+
+@keyframes float-2 {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-40px, 30px);
+  }
+}
+
+@keyframes float-3 {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(25px, 35px);
+  }
+}
+
+@keyframes float-4 {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-35px, -25px);
+  }
+}
+
+@keyframes pulse-scale {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse-opacity {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes rotate-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash-line {
+  0% {
+    stroke-dashoffset: 200;
+    opacity: 0.3;
+  }
+  50% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: -200;
+    opacity: 0.3;
+  }
+}
+
+@keyframes pulse-ring {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.15;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.3;
+  }
+}
+
+/* Grid Lines */
+.hero-grid-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.03;
+  pointer-events: none;
+}
+
+.grid-line {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.grid-line-1 {
+  width: 1px;
+  height: 100%;
+  left: 25%;
+  animation: slide-vertical 10s linear infinite;
+}
+
+.grid-line-2 {
+  width: 1px;
+  height: 100%;
+  left: 50%;
+  animation: slide-vertical 15s linear infinite reverse;
+}
+
+.grid-line-3 {
+  width: 1px;
+  height: 100%;
+  left: 75%;
+  animation: slide-vertical 12s linear infinite;
+}
+
+@keyframes slide-vertical {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-svg-shapes {
+    transform: scale(0.7);
+    transform-origin: center center;
+  }
+
+  .grid-line {
+    display: none;
+  }
+}
+
+/* Accessibility - Reduce Motion */
+@media (prefers-reduced-motion: reduce) {
+  .shape,
+  .grid-line {
+    animation: none !important;
+  }
+
+  .hero-svg-shapes {
+    opacity: 0.5;
+  }
+}

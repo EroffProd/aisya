@@ -1,0 +1,371 @@
+/* ROI Calculator Container */
+.roi-calculator-container {
+  padding: 80px 40px;
+  background: linear-gradient(135deg, #f0f2f5 0%, #ffffff 100%);
+  position: relative;
+}
+
+.roi-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.roi-header .ant-typography {
+  margin-bottom: 16px;
+}
+
+/* Parameters Card */
+.roi-params-card {
+  background: #ffffff !important;
+  border-radius: 16px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+  height: 100%;
+}
+
+.roi-params-card .ant-card-body {
+  padding: 32px;
+}
+
+.param-group {
+  padding: 20px;
+  background: #fafafa;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.param-group:hover {
+  background: #f5f5f5;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.param-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.param-input {
+  width: 100px !important;
+  font-weight: 600;
+}
+
+/* Slider Customization */
+.param-group .ant-slider {
+  margin-bottom: 8px;
+}
+
+.param-group .ant-slider-track {
+  background: linear-gradient(90deg, #1890ff 0%, #096dd9 100%);
+}
+
+.param-group .ant-slider-handle {
+  border-color: #1890ff;
+  box-shadow: 0 0 0 4px rgba(24, 144, 255, 0.2);
+}
+
+.param-group .ant-slider-handle:hover,
+.param-group .ant-slider-handle:focus {
+  border-color: #096dd9;
+  box-shadow: 0 0 0 6px rgba(24, 144, 255, 0.3);
+}
+
+/* Results Section */
+.roi-results {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 100%;
+}
+
+/* Main Result Card */
+.roi-result-main {
+  background: linear-gradient(135deg, #1890ff 0%, #096dd9 100%) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 8px 32px rgba(24, 144, 255, 0.3) !important;
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+  animation: slideInUp 0.6s ease-out;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.roi-result-main::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.roi-result-main .ant-card-body {
+  padding: 40px;
+  position: relative;
+  z-index: 1;
+}
+
+.result-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  opacity: 0.3;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.roi-result-main h3 {
+  color: #ffffff !important;
+  opacity: 0.95;
+  margin-bottom: 16px;
+}
+
+.result-value {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.currency {
+  font-size: 32px;
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+.amount {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -2px;
+  animation: countUp 1s ease-out;
+}
+
+@keyframes countUp {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.result-yearly {
+  font-size: 16px;
+  opacity: 0.9;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+}
+
+.result-yearly strong {
+  font-size: 18px;
+}
+
+/* Metric Cards */
+.roi-metric-card {
+  background: #ffffff !important;
+  border-radius: 12px !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08) !important;
+  transition: all 0.3s ease;
+  animation: fadeIn 0.6s ease-out 0.2s both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.roi-metric-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12) !important;
+}
+
+.roi-metric-card .ant-statistic-title {
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.65);
+  margin-bottom: 8px;
+}
+
+.roi-metric-card .ant-statistic-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Comparison Card */
+.roi-comparison-card {
+  background: #ffffff !important;
+  border-radius: 12px !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08) !important;
+  animation: fadeIn 0.6s ease-out 0.4s both;
+}
+
+.roi-comparison-card .ant-card-body {
+  padding: 24px;
+}
+
+.roi-comparison-card h5 {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.comparison-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.comparison-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  background: #fafafa;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.comparison-item:hover {
+  background: #f0f0f0;
+}
+
+.comparison-item.highlight {
+  background: linear-gradient(135deg, #e6fffb 0%, #b5f5ec 100%);
+  border: 1px solid #87e8de;
+}
+
+.comparison-label {
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.comparison-values {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 600;
+}
+
+.before {
+  color: rgba(0, 0, 0, 0.45);
+  text-decoration: line-through;
+}
+
+.arrow {
+  color: #1890ff;
+  font-size: 16px;
+}
+
+.after {
+  color: #52c41a;
+  font-size: 16px;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .roi-calculator-container {
+    padding: 60px 20px;
+  }
+
+  .roi-header {
+    margin-bottom: 40px;
+  }
+
+  .roi-result-main .ant-card-body {
+    padding: 30px;
+  }
+
+  .amount {
+    font-size: 36px;
+  }
+
+  .currency {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 576px) {
+  .roi-calculator-container {
+    padding: 40px 16px;
+  }
+
+  .roi-params-card .ant-card-body {
+    padding: 20px;
+  }
+
+  .param-group {
+    padding: 16px;
+  }
+
+  .param-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .param-input {
+    width: 80px !important;
+  }
+
+  .roi-result-main .ant-card-body {
+    padding: 24px;
+  }
+
+  .amount {
+    font-size: 28px;
+  }
+
+  .currency {
+    font-size: 20px;
+  }
+
+  .comparison-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .comparison-values {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .roi-result-main,
+  .roi-metric-card,
+  .roi-comparison-card,
+  .result-icon,
+  .amount {
+    animation: none !important;
+  }
+}

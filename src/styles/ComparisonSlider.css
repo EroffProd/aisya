@@ -1,0 +1,376 @@
+/* Comparison Slider Container */
+.comparison-slider-container {
+  padding: 80px 40px;
+  background: linear-gradient(135deg, #f0f2f5 0%, #e6f7ff 100%);
+}
+
+.comparison-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.comparison-header .ant-typography {
+  margin-bottom: 16px;
+}
+
+/* Comparison Visual */
+.comparison-visual {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 700px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
+  cursor: ew-resize;
+  user-select: none;
+}
+
+.comparison-side {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.comparison-side.before {
+  background: linear-gradient(135deg, #fff1f0 0%, #ffccc7 100%);
+}
+
+.comparison-side.after {
+  background: linear-gradient(135deg, #f6ffed 0%, #d9f7be 100%);
+}
+
+/* Comparison Cards */
+.comparison-card {
+  height: 100%;
+  background: transparent !important;
+  padding: 40px !important;
+}
+
+.card-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.badge-before {
+  background: rgba(255, 77, 79, 0.15);
+  color: #ff4d4f;
+  border: 2px solid #ff4d4f;
+}
+
+.badge-after {
+  background: rgba(82, 196, 26, 0.15);
+  color: #52c41a;
+  border: 2px solid #52c41a;
+}
+
+/* Comparison Stats */
+.comparison-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin: 32px 0;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+  transform: translateX(8px);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.stat-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Efficiency Bar */
+.efficiency-bar {
+  margin: 24px 0;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+}
+
+.efficiency-bar .ant-progress-bg {
+  height: 12px !important;
+  border-radius: 6px;
+}
+
+/* Comparison List */
+.comparison-list {
+  list-style: none;
+  padding: 0;
+  margin: 24px 0 0 0;
+}
+
+.comparison-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  margin-bottom: 12px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.comparison-list li:hover {
+  transform: translateX(8px);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.comparison-list li.negative {
+  color: #ff4d4f;
+}
+
+.comparison-list li.positive {
+  color: #52c41a;
+}
+
+.comparison-list li svg {
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+/* Slider Handle */
+.slider-handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.handle-bar {
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.handle-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 56px;
+  height: 56px;
+  background: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1890ff;
+  cursor: ew-resize;
+  pointer-events: auto;
+  transition: all 0.3s ease;
+}
+
+.handle-button:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+  box-shadow: 0 6px 24px rgba(24, 144, 255, 0.4);
+}
+
+.handle-button svg {
+  animation: pulse-arrows 2s ease-in-out infinite;
+}
+
+@keyframes pulse-arrows {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+/* Bottom Stats */
+.bottom-stat-card {
+  background: #ffffff !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08) !important;
+  transition: all 0.3s ease;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.bottom-stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12) !important;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.bottom-stat-card .ant-statistic-title {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.65);
+  margin-bottom: 8px;
+}
+
+.bottom-stat-card .ant-statistic-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .comparison-slider-container {
+    padding: 60px 20px;
+  }
+
+  .comparison-visual {
+    height: 600px;
+  }
+
+  .comparison-card {
+    padding: 30px !important;
+  }
+
+  .comparison-stats {
+    gap: 16px;
+  }
+
+  .stat-item {
+    padding: 12px;
+  }
+
+  .stat-content strong {
+    font-size: 24px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .comparison-slider-container {
+    padding: 40px 16px;
+  }
+
+  .comparison-visual {
+    height: 650px;
+  }
+
+  .comparison-card {
+    padding: 24px !important;
+  }
+
+  .comparison-header {
+    margin-bottom: 40px;
+  }
+
+  .stat-item {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px;
+  }
+
+  .comparison-list li {
+    font-size: 13px;
+  }
+
+  .handle-button {
+    width: 48px;
+    height: 48px;
+  }
+
+  .bottom-stat-card .ant-statistic-content-value {
+    font-size: 24px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .comparison-visual {
+    height: 700px;
+  }
+
+  .comparison-card h4 {
+    font-size: 18px !important;
+  }
+
+  .stat-content strong {
+    font-size: 20px !important;
+  }
+
+  .efficiency-bar {
+    padding: 12px;
+  }
+
+  .comparison-list li {
+    padding: 10px 12px;
+    margin-bottom: 8px;
+  }
+
+  .handle-button {
+    width: 40px;
+    height: 40px;
+  }
+
+  .handle-button svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* Touch Devices */
+@media (hover: none) and (pointer: coarse) {
+  .comparison-visual {
+    cursor: grab;
+  }
+
+  .comparison-visual:active {
+    cursor: grabbing;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .stat-item,
+  .comparison-list li,
+  .bottom-stat-card,
+  .handle-button svg {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .stat-item:hover,
+  .comparison-list li:hover {
+    transform: none;
+  }
+
+  .handle-button:hover {
+    transform: translate(-50%, -50%);
+  }
+}
