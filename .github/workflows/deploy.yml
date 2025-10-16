@@ -28,6 +28,9 @@ jobs:
           CI: false
           GENERATE_SOURCEMAP: false
 
+      - name: 📁 Create .well-known directory for SSL
+        run: mkdir -p ./build/.well-known/acme-challenge
+
       - name: 🗑️ Deploy to FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
@@ -43,4 +46,3 @@ jobs:
             **/.git*/**
             **/node_modules/**
             .env*
-            .well-known/**
