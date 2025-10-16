@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>AISYA — AI Sales Assistant | Увеличьте конверсию отдела продаж</title>
+  <meta name="description" content="AISYA — первый AI Sales Assistant в России. Анализ звонков и чатов в реальном времени, подсказки менеджеру, прозрачная аналитика и интеграция с CRM.">
+  <link rel="canonical" href="https://aisya.online/">
+  <meta name="theme-color" content="#000000">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="AISYA">
+  <meta property="og:url" content="https://aisya.online/">
+  <meta property="og:title" content="AISYA — AI Sales Assistant">
+  <meta property="og:description" content="Ассистент, который анализирует звонки и чаты в реальном времени, подсказывает менеджеру и помогает руководителю видеть, где теряются продажи.">
+  <meta property="og:image" content="https://i.ibb.co/F4hRR0D0/2025-10-07-20-31-41.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AISYA — AI Sales Assistant">
+  <meta name="twitter:description" content="Анализ звонков и чатов, подсказки в реальном времени и аналитика для роста конверсии.">
+  <meta name="twitter:image" content="https://i.ibb.co/F4hRR0D0/2025-10-07-20-31-41.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #000000;
+      --bg-2: #0c0c0c;
+      --text: #ffffff;
+      --muted: #cccccc;
+      --accent: #00FF88;
+      --accent-2: #00d975;
+      --card: #111213;
+      --shadow: 0 20px 60px rgba(0,0,0,0.55);
+      --radius: 16px;
+      --maxw: 1160px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: radial-gradient(1200px 800px at 70% -20%, #101010 0%, var(--bg) 55%) , linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+      color: var(--text);
+      font-family: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: 100%;
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: saturate(180%) blur(10px);
+      background: linear-gradient(180deg, rgba(0,0,0,0.6), rgba(0,0,0,0.2) 60%, rgba(0,0,0,0) 100%);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+    }
+    .brand-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 16px rgba(0,255,136,0.8), 0 0 40px rgba(0,255,136,0.25);
+    }
+    .nav-links { display: flex; gap: 18px; }
+    .nav-links a {
+      color: var(--muted);
+      font-weight: 500;
+      font-size: 14px;
+      opacity: 0.9;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    .hero {
+      position: relative;
+      padding: clamp(72px, 8vw, 120px) 0 clamp(64px, 6vw, 100px);
+      text-align: center;
+      overflow: hidden;
+      background: radial-gradient(800px 400px at 50% -10%, rgba(0,255,136,0.06), rgba(0,0,0,0));
+    }
+    .hero h1 {
+      margin: 0 auto 18px;
+      max-width: 1100px;
+      font-weight: 800;
+      font-size: clamp(28px, 5.5vw, 56px);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      text-shadow: 0 2px 30px rgba(0,0,0,0.5);
+    }
+    .hero p {
+      margin: 0 auto;
+      max-width: 920px;
+      font-size: clamp(16px, 2.1vw, 20px);
+      color: var(--muted);
+    }
+
+    .cta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 28px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      --padx: 22px;
+      padding: 14px var(--padx);
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      color: var(--text);
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: 0.2px;
+      transition: transform 220ms ease, background 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: var(--shadow);
+      will-change: transform;
+    }
+    .btn:active { transform: translateY(1px) scale(0.99); }
+    .btn-primary {
+      background: linear-gradient(180deg, var(--accent) 0%, var(--accent-2) 100%);
+      color: #001b10;
+      border-color: rgba(0,255,136,0.5);
+      box-shadow: 0 10px 30px rgba(0,255,136,0.35), inset 0 -6px 12px rgba(0,0,0,0.2);
+    }
+    .btn-primary:hover { filter: brightness(1.05); }
+    .btn-ghost { background: rgba(255,255,255,0.04); color: var(--text); }
+    .btn-ghost:hover { background: rgba(255,255,255,0.08); }
+
+    .screens {
+      position: relative;
+      padding: clamp(48px, 8vw, 120px) 0;
+      perspective: 1200px;
+      overflow: hidden;
+    }
+    .section-title {
+      text-align: center;
+      font-size: clamp(24px, 4.2vw, 40px);
+      font-weight: 800;
+      margin: 0 auto 14px;
+      letter-spacing: -0.01em;
+    }
+    .section-subtitle {
+      text-align: center;
+      margin: 0 auto 42px;
+      max-width: 900px;
+      color: var(--muted);
+      font-size: clamp(15px, 2.1vw, 18px);
+    }
+    .screen-wrap {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: clamp(16px, 3vw, 36px);
+      align-items: center;
+      justify-items: center;
+      transform-style: preserve-3d;
+    }
+    .screen-card {
+      position: relative;
+      width: min(560px, 90%);
+      aspect-ratio: 16 / 10;
+      border-radius: 22px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 24px 100px rgba(0,0,0,0.6);
+      transform: rotateY(var(--ry, -6deg)) rotateX(var(--rx, 2deg)) translateZ(0);
+      transition: transform 600ms cubic-bezier(.2,.8,.2,1), box-shadow 300ms ease, filter 300ms ease;
+      will-change: transform;
+    }
+    .screen-card:hover {
+      transform: rotateY(var(--ry-hover, -2deg)) rotateX(var(--rx-hover, 1deg)) translateY(-6px) scale(1.01);
+      box-shadow: 0 30px 120px rgba(0,255,136,0.12), 0 18px 60px rgba(0,0,0,0.65);
+      filter: brightness(1.02);
+    }
+    .screen-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: translateZ(40px) scale(1.02);
+      transition: transform 600ms cubic-bezier(.2,.8,.2,1);
+    }
+    .screen-card:hover .screen-img {
+      transform: translateZ(70px) scale(1.03) translateY(-2px);
+    }
+    .soft-shadow {
+      position: absolute;
+      inset: auto 8% -18% 8%;
+      height: 28%;
+      background: radial-gradient(60% 60% at 50% 30%, rgba(0,0,0,0.55), rgba(0,0,0,0));
+      filter: blur(8px);
+      transform: translateZ(0);
+      pointer-events: none;
+    }
+
+    .demo { padding: clamp(48px, 8vw, 120px) 0; }
+    .video-frame {
+      position: relative;
+      width: 100%;
+      max-width: 980px;
+      margin: 0 auto;
+      aspect-ratio: 16 / 9;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 24px 100px rgba(0,0,0,0.6);
+      background: #0b0b0b;
+    }
+    .video-frame iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .benefits { padding: clamp(48px, 8vw, 120px) 0; }
+    .benefit-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+      margin-top: 24px;
+    }
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius);
+      padding: 24px;
+      min-height: 220px;
+      box-shadow: var(--shadow);
+      transition: transform 240ms ease, background 240ms ease, border-color 240ms ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+      border-color: rgba(0,255,136,0.25);
+    }
+    .icon { font-size: 26px; line-height: 1; filter: drop-shadow(0 0 10px rgba(0,255,136,0.35)); }
+    .card h3 { margin: 14px 0 8px; font-size: 20px; }
+    .card p { color: var(--muted); margin: 0; }
+
+    .cta-section {
+      padding: clamp(48px, 8vw, 120px) 0;
+      text-align: center;
+      background: radial-gradient(900px 600px at 50% 0%, rgba(0,255,136,0.08), rgba(0,0,0,0));
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .cta-section .cta { margin-top: 24px; }
+
+    footer {
+      color: var(--muted);
+      padding: 36px 0 48px;
+      text-align: center;
+    }
+    .glow {
+      text-shadow: 0 0 10px rgba(255,255,255,0.12), 0 0 24px rgba(0,255,136,0.18);
+    }
+    .muted { color: var(--muted); }
+
+    .reveal { opacity: 0; transform: translateY(14px); transition: opacity 600ms ease, transform 600ms ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .fade-in { opacity: 0; transform: translateY(10px); animation: fadeInUp 800ms ease forwards; animation-delay: 120ms; }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 980px) {
+      .benefit-grid { grid-template-columns: 1fr; }
+      .screen-wrap { grid-template-columns: 1fr; gap: 28px; }
+      .screen-card { width: 92%; }
+      .nav-links { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; animation: none !important; }
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand" aria-label="AISYA">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span>AISYA</span>
+      </div>
+      <nav class="nav-links" aria-label="Навигация">
+        <a href="#demo">Демо</a>
+        <a href="https://wa.me/79272550532" target="_blank" rel="noopener">WhatsApp</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container fade-in" aria-label="AISYA — AI Sales Assistant">
+      <h1 class="glow">AISYA — первый AI Sales Assistant в России</h1>
+      <p class="muted">
+        Умный ассистент, который анализирует звонки и чаты в реальном времени,
+        подсказывает менеджеру, как ответить клиенту,
+        и помогает руководителю видеть, где теряются продажи.
+      </p>
+      <div class="cta">
+        <a class="btn btn-primary" href="#demo" aria-label="Смотреть демо">Смотреть демо</a>
+        <a class="btn btn-ghost" href="https://wa.me/79272550532" target="_blank" rel="noopener" aria-label="Связаться в WhatsApp">Связаться</a>
+      </div>
+    </section>
+
+    <section class="screens container" aria-label="Парящие скрины">
+      <h2 class="section-title reveal">Ваш отдел продаж, усиленный искусственным интеллектом</h2>
+      <p class="section-subtitle reveal">
+        AISYA не заменяет сотрудников — она помогает им работать в 3 раза эффективнее.<br>
+        Ассистент слушает звонки, анализирует диалог,<br>
+        подсказывает в реальном времени и сохраняет всё в CRM.
+      </p>
+      <div class="screen-wrap">
+        <figure class="screen-card reveal" style="--ry:-8deg; --rx:2deg; --ry-hover:-3deg; --rx-hover:1deg;" aria-label="Интерфейс звонкового ассистента">
+          <img class="screen-img" src="https://i.ibb.co/F4hRR0D0/2025-10-07-20-31-41.png" alt="Скрин: звонковый ассистент AISYA">
+          <div class="soft-shadow" aria-hidden="true"></div>
+        </figure>
+        <figure class="screen-card reveal" style="--ry:8deg; --rx:2deg; --ry-hover:3deg; --rx-hover:1deg;" aria-label="Интерфейс чат-ассистента">
+          <img class="screen-img" src="https://i.ibb.co/YBCBwW42/2025-10-07-20-31-21.png" alt="Скрин: чат-ассистент AISYA">
+          <div class="soft-shadow" aria-hidden="true"></div>
+        </figure>
+      </div>
+    </section>
+
+    <section id="demo" class="demo container" aria-label="Посмотреть демо">
+      <h2 class="section-title reveal">Посмотрите, как это работает</h2>
+      <div class="video-frame reveal">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/53aTnqzBgpc"
+          title="AISYA — демо"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+          loading="lazy">
+        </iframe>
+      </div>
+      <p class="section-subtitle reveal" style="margin-top: 18px;">
+        Реальный пример работы ассистента — вы увидите, как AISYA<br>
+        понимает клиента, подсказывает менеджеру и помогает закрывать сделки быстрее.<br>
+        Компании уже фиксируют рост конверсии до 35–50%.
+      </p>
+    </section>
+
+    <section class="benefits container" aria-label="Преимущества AISYA">
+      <h2 class="section-title reveal">Почему компании выбирают AISYA</h2>
+      <div class="benefit-grid">
+        <div class="card reveal">
+          <div class="icon" aria-hidden="true">🧠</div>
+          <h3>Мгновенный анализ</h3>
+          <p>Ассистент слушает разговор и подсказывает менеджеру, как ответить, чтобы не потерять клиента.</p>
+        </div>
+        <div class="card reveal">
+          <div class="icon" aria-hidden="true">📊</div>
+          <h3>Прозрачная аналитика</h3>
+          <p>Руководитель видит отчёт по каждому диалогу: где теряются сделки, и как их вернуть.</p>
+        </div>
+        <div class="card reveal">
+          <div class="icon" aria-hidden="true">⚙️</div>
+          <h3>Интеграция без боли</h3>
+          <p>Подключается к CRM, 1С, мессенджерам и сайтам без сложных настроек и внедрений.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section" aria-label="Попробуйте AISYA">
+      <div class="container">
+        <h2 class="section-title reveal">Попробуйте AISYA уже сегодня</h2>
+        <p class="section-subtitle reveal">
+          Это не теория — это рабочий инструмент, который вы можете протестировать прямо сейчас.<br>
+          Мы покажем демо за 5 минут — и вы сами убедитесь в его эффективности.
+        </p>
+        <div class="cta">
+          <a class="btn btn-primary" href="#demo">Смотреть демо</a>
+          <a class="btn btn-ghost" href="https://wa.me/79272550532" target="_blank" rel="noopener">Связаться в WhatsApp</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p class="glow" style="margin: 0 0 8px;">📞 +7 (927) 255-05-32</p>
+      <p class="glow" style="margin: 0 0 8px;">✉️ <a href="mailto:ai-prod@aisya.online" class="muted">ai-prod@aisya.online</a></p>
+      <p class="muted" style="margin: 8px 0 0;">© 2025 AISYA — AI-решения для бизнеса</p>
+      <p class="muted" style="margin: 6px 0 0;">Умнее. Быстрее. Эффективнее.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReduced) return;
+      var elements = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
+      if (!('IntersectionObserver' in window) || elements.length === 0) {
+        elements.forEach(function(el){ el.classList.add('visible'); });
+        return;
+      }
+      var io = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+      elements.forEach(function(el){ io.observe(el); });
+    })();
+    window.addEventListener('hashchange', function(){ if (document.activeElement) document.activeElement.blur(); });
+  </script>
+</body>
+</html>
