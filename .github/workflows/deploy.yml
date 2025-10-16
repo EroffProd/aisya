@@ -28,7 +28,7 @@ jobs:
           CI: false
           GENERATE_SOURCEMAP: false
 
-      - name: 🗑️ Clean old files on FTP
+      - name: 🗑️ Deploy to FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ${{ secrets.FTP_SERVER }}
@@ -37,9 +37,10 @@ jobs:
           port: ${{ secrets.FTP_PORT }}
           local-dir: ./build/
           server-dir: ./www/aisya.online/
-          dangerous-clean-slate: true
+          dangerous-clean-slate: false
           exclude: |
             **/.git*
             **/.git*/**
             **/node_modules/**
             .env*
+            .well-known/**
