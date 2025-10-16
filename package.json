@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Sufler Chat - React client for chat integration",
   "private": true,
+  "homepage": ".",
   "dependencies": {
     "@ant-design/icons": "^5.5.1",
     "antd": "^5.27.4",
